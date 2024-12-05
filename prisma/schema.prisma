@@ -12,3 +12,41 @@ datasource db {
   provider = "sqlserver"
   url      = env("DATABASE_URL")
 }
+
+model ReportType {
+  id       Int      @id @default(autoincrement())
+  name     String   @unique
+
+  reports  Report[]
+}
+
+model Renter {
+  id        Int        @id @default(autoincrement())
+  name      String
+
+  immobiles Immobile[]
+}
+
+model Immobile {
+  id         Int        @id @default(autoincrement())
+  branch     String?
+  name       String
+  details    String
+
+  renterId   Int?
+  renter     Renter?    @relation(fields: [renterId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  reports    Report[]
+}
+
+model Report {
+  id          Int         @id @default(autoincrement())
+  date        DateTime
+  received    Float       @default(0)
+
+  reportTypeId Int
+  reportType  ReportType  @relation(fields: [reportTypeId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  immobileId  Int
+  immobile    Immobile    @relation(fields: [immobileId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
