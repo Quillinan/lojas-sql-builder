@@ -3,6 +3,8 @@ import cors from "cors";
 import "dotenv/config";
 import { PrismaClient } from "@prisma/client";
 
+import { createReportTypes } from "./factories/reportType-factory.js";
+
 export const prisma = new PrismaClient();
 
 const app = express();
@@ -10,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 async function seedDatabase() {
+  await createReportTypes();
   //console.log("Fake data gerado");
 }
 
