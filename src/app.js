@@ -6,6 +6,7 @@ import { PrismaClient } from "@prisma/client";
 import { createReportTypes } from "./factories/reportType-factory.js";
 import { createRenters } from "./factories/renter-factory.js";
 import { createImmobiles } from "./factories/immobile-factory.js";
+import { createReports } from "./factories/report-factory.js";
 
 export const prisma = new PrismaClient();
 
@@ -14,10 +15,13 @@ app.use(cors());
 app.use(express.json());
 
 async function seedDatabase() {
+  const years = [2021, 2022, 2023, 2024];
+
   await createReportTypes();
   await createRenters();
   await createImmobiles();
-  //console.log("Fake data gerado");
+  await createReports(years);
+  console.log("Fake data gerado");
 }
 
 const port = process.env.PORT || 5000;
