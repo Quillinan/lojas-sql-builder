@@ -4,6 +4,7 @@ import "dotenv/config";
 import { PrismaClient } from "@prisma/client";
 
 import { createReportTypes } from "./factories/reportType-factory.js";
+import { createRenters } from "./factories/renter-factory.js";
 
 export const prisma = new PrismaClient();
 
@@ -13,6 +14,7 @@ app.use(express.json());
 
 async function seedDatabase() {
   await createReportTypes();
+  await createRenters();
   //console.log("Fake data gerado");
 }
 
