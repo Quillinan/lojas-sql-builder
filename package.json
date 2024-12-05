@@ -1,0 +1,34 @@
+{
+  "name": "lojas-sql-builder",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/app.js",
+    "prisma": "npx prisma generate && npx prisma migrate dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quillinan/lojas-sql-builder.git"
+  },
+  "author": "Milton Quillinan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Quillinan/lojas-sql-builder/issues"
+  },
+  "homepage": "https://github.com/Quillinan/lojas-sql-builder#readme",
+  "description": "",
+  "devDependencies": {
+    "@faker-js/faker": "^9.2.0",
+    "@types/cors": "^2.8.17",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "npm": "^10.9.1",
+    "prisma": "^5.22.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "dotenv": "^16.4.5"
+  }
+}
