@@ -5,6 +5,7 @@ import { PrismaClient } from "@prisma/client";
 
 import { createReportTypes } from "./factories/reportType-factory.js";
 import { createRenters } from "./factories/renter-factory.js";
+import { createImmobiles } from "./factories/immobile-factory.js";
 
 export const prisma = new PrismaClient();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 async function seedDatabase() {
   await createReportTypes();
   await createRenters();
+  await createImmobiles();
   //console.log("Fake data gerado");
 }
 

@@ -29,9 +29,7 @@ model Renter {
 
 model Immobile {
   id         Int        @id @default(autoincrement())
-  branch     String?
   name       String
-  details    String
 
   renterId   Int?
   renter     Renter?    @relation(fields: [renterId], references: [id], onDelete: Cascade, onUpdate: Cascade)
