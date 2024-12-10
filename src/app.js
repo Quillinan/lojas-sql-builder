@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 async function seedDatabase() {
-  const years = [2021, 2022, 2023, 2024];
+  const years = [2020, 2021, 2022, 2023, 2024];
 
   await createReportTypes();
   await createRenters();
